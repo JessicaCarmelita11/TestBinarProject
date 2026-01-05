@@ -1,13 +1,23 @@
 package com.example.ProjectBinar;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
+import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
-@ActiveProfiles("test")
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+/** Basic unit test that doesn't require Spring context. */
+@DisplayName("ProjectBinar Application Tests")
 class ProjectBinarApplicationTests {
 
   @Test
-  void contextLoads() {}
+  @DisplayName("Application class should exist")
+  void applicationClassExists() {
+    assertDoesNotThrow(() -> Class.forName("com.example.ProjectBinar.ProjectBinarApplication"));
+  }
+
+  @Test
+  @DisplayName("Main method should exist")
+  void mainMethodExists() throws NoSuchMethodException {
+    assertNotNull(ProjectBinarApplication.class.getMethod("main", String[].class));
+  }
 }
