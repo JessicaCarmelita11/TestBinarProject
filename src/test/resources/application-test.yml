@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: false
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  cache:
+    type: none
+
+jwt:
+  secret: dGhpc19pc19hX3ZlcnlfdmVyeV9sb25nX3NlY3JldF9rZXlfZm9yX2p3dF90b2tlbl9nZW5lcmF0aW9u
+  expiration: 86400000
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: WARN
+    com.example.ProjectBinar: INFO

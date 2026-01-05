@@ -43,10 +43,6 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Create application.yml for tests
-        run: |
-          cp src/main/resources/application-template.yml src/main/resources/application.yml
-
       - name: Run unit tests
         run: mvn test -Dspring.profiles.active=test
 
@@ -74,12 +70,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Create application.yml for build
-        run: |
-          cp src/main/resources/application-template.yml src/main/resources/application.yml
-
       - name: Build with Maven (skip tests)
-        run: mvn package -DskipTests
+        run: mvn package -DskipTests -Dspring.profiles.active=test
 
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
