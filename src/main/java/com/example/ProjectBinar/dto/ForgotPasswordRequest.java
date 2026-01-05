@@ -7,16 +7,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * DTO untuk request forgot password.
- */
+/** DTO untuk request forgot password. */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class ForgotPasswordRequest {
 
-    @NotBlank(message = "Email is required")
-    @Email(message = "Invalid email format")
-    private String email;
+  @NotBlank(message = "Email is required")
+  @Email(message = "Invalid email format")
+  private String email;
 }

@@ -34,3 +34,5 @@ build/
 .vscode/
 application-template.yml
 application-copy.yml
+application-docker.yml
+.env

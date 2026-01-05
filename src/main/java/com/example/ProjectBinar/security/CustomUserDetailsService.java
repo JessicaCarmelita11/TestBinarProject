@@ -10,21 +10,22 @@ import org.springframework.stereotype.Service;
 
 /**
  * Custom UserDetailsService - Load user dari database.
- * 
- * Digunakan oleh Spring Security untuk mengambil
- * informasi user saat proses authentication.
+ *
+ * <p>Digunakan oleh Spring Security untuk mengambil informasi user saat proses authentication.
  */
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+  private final UserRepository userRepository;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
+  @Override
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    User user =
+        userRepository
+            .findByUsername(username)
+            .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
 
-        return new CustomUserDetails(user);
-    }
+    return new CustomUserDetails(user);
+  }
 }

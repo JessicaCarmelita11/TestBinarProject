@@ -19,17 +19,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Branch {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @Column(unique = true, nullable = false)
-    private String name;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column
-    private String address;
+  @Column(unique = true, nullable = false)
+  private String name;
 
-    @Column
-    private String city;
+  @Column private String address;
 
+  @Column private String city;
 }
